@@ -1,0 +1,162 @@
+
+/* reset all elements */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* style the body */
+
+body{
+  background: #39373B;
+  padding: 10px;
+  margin:10px;
+}
+
+/* style the container */
+
+.container{
+  background: lightgrey;
+  text-align: center;
+   margin:10px auto 0px auto;
+   padding: 10px;
+}
+
+/* style the page title */
+
+h2{
+  font-weight: bold;
+  padding: 1em;
+  border: 2px black solid;
+  margin: 0em 12px 0em 12px;
+  font-size: 30px
+}
+
+/* style the gallery */
+
+.gallery{
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  cursor: default;
+  padding: 10px;
+  margin: 10px;
+  border: 5px solid #333;
+  background-color: white;
+}
+
+.gallery .image-box:hover{
+  filter: none;
+}
+
+.gallery .image-box img{
+  height: 180px;
+  padding: 10px;
+  margin: 10px;
+  border: 5px solid #333;
+  cursor: pointer;
+  filter: grayscale(1);
+  transition: 0.3s ease all;
+} 
+.gallery .image-box img:hover{
+  transform: scale(1.1);
+}
+
+/* style the lightbox */
+.lightbox{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(90deg);
+  transition: 0.5s ease all;
+  opacity: 0;
+}
+
+.lightbox .overlay{
+  position: absolute;
+  background: rgba(0,0,0,0.8);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.lightbox .lightbox-image{
+  position: relative;
+  border: 10px solid white;
+  max-width: 100vw;
+  max-height: 100vh;
+  transition: 0.7s ease all;
+  transition-delay: 0.5s;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.lightbox #close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+  background: white;
+}
+
+.lightbox .thumbnails{
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  transition: 0.5s ease all;
+  transition-delay: 1s;
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.lightbox .thumbnails .thumbnail{
+  height: 60px;
+  width: 60px;
+  border: 2px solid black;
+  margin: 10px;
+  position: relative;
+  cursor: pointer;
+  opacity: 0.5;
+  border-radius: 50%;
+}
+
+.lightbox .thumbnails .thumbnail:hover{
+  opacity: 1;
+  transform: scale(1.5, 1.5);
+}
+
+/* the activation class */
+
+.show-it{
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+
+.show-it .lightbox-image{
+  opacity: 1;
+  transform: scale(1);
+}
+
+.show-it .thumbnails{
+  opacity: 1;
+  transform: translateX(0px);
+}

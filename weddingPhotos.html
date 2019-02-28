@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Wedding Gallery</title>
+    <!-- include css file -->
+    <link rel="stylesheet" href ="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="weddingPhotos.css">
+  </head>
+  <body>
+
+ <div class="container">
+ <!-- title -->
+<h2>Wedding Photos</h2>
+
+<ul class="gallery">
+	<li class="image-box" id="weddingPhotos"></li>
+</ul>
+
+      <!-- The lightbox -->
+  <div id="lightbox" class="lightbox">
+	<div class="overlay" id="overlay"></div>
+	<img src=".\pics\Waguespack-001.jpg" alt="lightbox image" class="lightbox-image">
+	<button id="close">X</button>
+	<div class="thumbnails" id="thumb"></div>
+  </div>
+
+
+    <!-- include js file -->
+    <script src="weddingPhotos.js"></script>
+  </body>
+</html>
