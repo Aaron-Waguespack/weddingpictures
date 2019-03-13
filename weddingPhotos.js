@@ -7,8 +7,7 @@ var pics = document.querySelectorAll('.image-box'),
     numPics = 10,
     picList = [],
     thumbList =[];
-
-console.log(picList)    
+  
 
 // function to add 000 for loop
 function pad(n, width, z) {
@@ -21,6 +20,7 @@ for(var i = 1; i < numPics; i++){
   var gal = document.createElement('img');
   gal.className = 'image-box';
   gal.setAttribute('src', '.\\pics\\Waguespack-'+ pad(i,3) + '.jpg');
+  gal.setAttribute('id', pad(i,3))
   document.getElementById('weddingPhotos').appendChild(gal);
   picList.push(document.getElementById('weddingPhotos').appendChild(gal));
 }
@@ -38,7 +38,8 @@ for(var i = 1; i < numPics; i++){
 picList.forEach(function(el){
   el.onclick = function(){
     lightbox.classList.add('show-it');
-    lightbox.children[1].setAttribute('src', el.getAttribute('src'));
+    lightbox.children[1].setAttribute('src', el.getAttribute('src').substring(0,17)+'Lg'+el.getAttribute('src').substring(17));
+    console.log( el.getAttribute('src').substring(0,17)+'Lg'+el.getAttribute('src').substring(17))
   }
 });
 
@@ -54,6 +55,6 @@ overlay.onclick = closeLightbox;
 var thumbnails = document.querySelectorAll('.thumbnail');
 thumbnails.forEach(function(el){
   el.onclick = function(){
-    lightbox.children[1].setAttribute('src', el.getAttribute('src'));
+    lightbox.children[1].setAttribute('src', el.getAttribute('src').substring(0,17)+'Lg'+el.getAttribute('src').substring(17));
   }
 });
